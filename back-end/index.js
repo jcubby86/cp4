@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/collections', {
 
 const multer = require('multer')
 const upload = multer({
-  dest: '../front-end/public/images/',
+  dest: '/var/www/collections.jmbastian.com/images/',
   limits: {
     fileSize: 10000000
   }
@@ -29,7 +29,6 @@ const itemSchema = new mongoose.Schema({
   coll: String,
 });
 
-// Create a model for items in the museum.
 const Item = mongoose.model('Item', itemSchema);
 
 const collectionSchema = new mongoose.Schema({
@@ -45,7 +44,7 @@ const fs = require('fs')
 
 
 function deleteFile(path) {
-  let file = '../front-end/public' + path;
+  let file = '/var/www/collections.jmbastian.com' + path;
   fs.unlink(file, (err) => {
     if (err) {
       console.error(err);
@@ -78,7 +77,6 @@ app.post('/api/collections', async (req, res) => {
   }
 });
 
-// Get a list of all of the items in the museum.
 app.get('/api/collections', async (req, res) => {
   try {
     let collections = await Collection.find();
@@ -90,7 +88,6 @@ app.get('/api/collections', async (req, res) => {
 });
 
 
-// Get a list of all of the items in the museum.
 app.get('/api/collection/:id', async (req, res) => {
   try {
     let collection = await Collection.findOne({

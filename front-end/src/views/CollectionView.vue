@@ -43,6 +43,12 @@
 
 button {
   margin: 10px 5px;
+}
+
+input,
+textarea,
+select,
+button {
   font-family: "Montserrat", sans-serif;
   font-size: 1em;
 }
