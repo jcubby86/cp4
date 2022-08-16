@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/collections', {
+mongoose.connect('mongodb://172.17.0.1:27017/collections', {
   useNewUrlParser: true
 });
 
@@ -213,4 +213,5 @@ app.put('/api/items/:id', async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log('Server listening on port 3001!'));
+app.use(express.static('../front-end/dist/'));
+app.listen(3000, () => console.log('Server listening on port 3000!'));
