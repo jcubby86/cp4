@@ -16,7 +16,7 @@ mongoose.connect('mongodb://172.17.0.1:27017/collections', {
 
 const multer = require('multer')
 const upload = multer({
-  dest: '/var/www/collections.jmbastian.com/images/',
+  dest: '/etc/data/front-end/dist/images/',
   limits: {
     fileSize: 10000000
   }
